@@ -1,5 +1,5 @@
 address {
-    font-size: var(--h3);
+    --font-size: var(--h3);
     font-style: normal;
     margin-top: 1rem;
 }
@@ -52,4 +52,13 @@ button {
 }
 button:hover {
 	background-color: #9A2B27;
+}
+
+@media (min-width: 950px){
+	main article fieldset .container {
+		display: flex;
+		justify-content: space-between;
+		align-items: baseline;
+	}
+
 }

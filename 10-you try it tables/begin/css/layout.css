@@ -95,6 +95,10 @@ section,
     #inside aside {
         --width: 4;
     }
+
+    #inside #table #article, #inside #table #aside {
+        --width: 14;
+    }
 }
 @media (min-width: 1200px) {
     #devs ul {

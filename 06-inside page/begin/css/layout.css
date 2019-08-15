@@ -10,50 +10,34 @@ main {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
-  --columns: 16;
+  --columns: 12;
 }
-section,
-#devs li {
-    --width: 16;
+main > article,
+main > aside {
+
     --gap-constant: 0.3%;
 	--initialbasis: calc(var(--width, 0) / var(--columns, 16) * 100%);
     --gap: calc((var(--columns, 16) - var(--width, 0)) * var(--gap-constant, 0.3%));
 	flex-basis: calc(var(--initialbasis) - var(--gap));
 }
-#devs li {
-    --width: 1;
-    --gap-constant: 3%;
+
+article {
+    --width: 12;
+}
+aside {
+    --width: 12;
 }
 
 
 /* tablet display - change columns to 11, place rows 3 and 4 on the bottom, full width */
 @media (min-width: 740px) {
     /* keep our math working, move 3rd and 4th columns to bottom */
-    main {
-        --columns: 11;
+    article {
+        --width: 8;
     }
-    /* row 1: #first 5 - #main 6,
-    row 2 #devs: 11,
-    row 3 #resources: 11
-    Change ordering to make that work */
-    #first {
-        --width: 5;
-        order: 1;
-    }
-    #main {
-        --width: 6;
-        order: 2;
-    }
-    #devs{
-        --width: 11;
-        order: 3;
-    }
-    #devs ul {
-        --columns: 5;
-    }
-    #resources {
-        --width: 11;
-        order: 4;
+
+    aside {
+        --width: 4;
     }
 
     .floatleft {
@@ -67,35 +51,16 @@ section,
 }
 @media (min-width: 950px){
     /* keep our math working, move 3rd column to bottom */
-    main {
-        --columns: 14;
-    }
     /* row 1: #first 5 - #main 6 - #resources 3,
     row 2: #devs 14
     Change ordering to make that work */
-    #devs{
-        --width: 14;
-        order: 4;
+    article {
+        --width: 8;
     }
-    #resources {
-        --width: 3;
-        order: 3;
+
+    aside {
+        --width: 4;
     }
 }
 @media (min-width: 1200px) {
-    #devs ul {
-       --columns: 1;
-    }
-    main {
-        --columns: 16;
-    }
-    /* #first 5 - #main 6 - #devs 2 - #resources 3 cols wide, make sure ordering is correct */
-    #devs{
-        --width: 2;
-        order: 3;
-    }
-    #resources {
-        --width: 3;
-        order: 4;
-    }
 }
